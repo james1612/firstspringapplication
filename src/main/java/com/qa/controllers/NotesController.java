@@ -35,6 +35,4 @@ public class NotesController {
         repository.delete(existing);
         return existing;
     }
-
-
 }

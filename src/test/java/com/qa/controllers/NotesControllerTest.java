@@ -13,13 +13,18 @@ import java.util.ArrayList;
 import java.util.List;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
+
+
 @RunWith(SpringRunner.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class NotesControllerTest {
+
     @InjectMocks
     private NotesController notesController;
+
     @Mock
     private NotesRepository repository;
+
     @Test
     public void testGetAllNotes(){
         List<Note> notesList = new ArrayList<>();
@@ -39,5 +44,13 @@ public class NotesControllerTest {
         note.setName("blah");
         when(repository.findOne(1L)).thenReturn(note);
         assertEquals(notesController.getNote(1L).getName(), "blah" );
+    }
+
+    @Test
+    public void deleteNote() {
+        Note note = new Note(1L, "a", "b");
+        when(repository.findOne(1L)).thenReturn(note);
+        assertEquals("a", notesController.deleteNote(1L).getName());
+
     }
 }

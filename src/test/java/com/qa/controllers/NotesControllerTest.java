@@ -1,6 +1,6 @@
 package com.qa.controllers;
 
-import com.qa.controllers.NotesController;
+//import com.qa.controllers.NotesController;
 import com.qa.models.Note;
 import com.qa.repository.NotesRepository;
 import org.junit.Test;
